@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="mychart"></canvas>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script >
+
+    var ctx , chart
+
+     window.addEventListener('load',()=>{
+        ctx = document.getElementById('mychart')
+
+        chart = new Chart(ctx,{
+            type:"pie",
+            data:{
+                labels:['January','Febuary','March',"Aprail","May","June"],
+                datasets:[{
+                    label:'Attendece',
+                    data:[100,70,40,20,81,53],
+                    backgroundColor:[
+                    createColor(255),
+                    createColor(255),
+                    createColor(255),
+                    createColor(255),
+                    createColor(255),
+                    createColor(255),
+                    ]
+                    
+                    
+                },
+                {
+                    label:'performence',
+                    data:[60,77,55,10,50,65],
+                    backgroundColor:[
+                    createColor(255),
+                    createColor(255),
+                    createColor(255),
+                    createColor(255),
+                    createColor(255),
+                    createColor(255),
+                    ]
+                }],
+                borderWidth:5,
+            }
+        })
+     })
+
+   function random(num) {
+     return Math.floor(Math.random()*num)
+   }
+
+   function createColor(num){
+    return `rgba(${random(255)},${random(255)},${random(255)},${Math.random()})`
+   }
+</script>
+</html>
